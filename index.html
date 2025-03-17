@@ -33,7 +33,7 @@
 
 
       
-      <a-marker type="nft" url="nft/cardtest.fset">
+      <a-marker type="nft" url="nft/cardtest">
         <a-entity
 		gltf-model="glb/ts.glb"
 
@@ -69,32 +69,32 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   </head>
   <body>
-    <!-- AR 장면 설정 -->
+    
     <a-scene mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/nft/card.mind;" 
               color-space="sRGB" 
               renderer="colorManagement: true, physicallyCorrectLights" 
               vr-mode-ui="enabled: false" 
               device-orientation-permission-ui="enabled: false">
               
-      <!-- 자산 로딩 -->
+      
       <a-assets>
         <img id="card" src="https://yooningu.github.io/ar.js-test/images/test.jpg" />
         <a-asset-item id="avatarModel" src="https://yooningu.github.io/ar.js-test/glb/panda.glb"></a-asset-item>
       </a-assets>
 
-      <!-- 조명 추가 -->
+      
       <a-light type="ambient" color="#ffffff" intensity="0.6"></a-light>
       <a-light type="directional" color="#ffffff" intensity="1" position="2 4 -3"></a-light>
 
-      <!-- 카메라 설정 -->
+      
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       
-      <!-- 이미지 타겟 추가 -->
+     
       <a-entity mindar-image-target="targetIndex: 0">
-        <!-- 카드 이미지 -->
+        
         <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
         
-        <!-- GLB 3D 모델 추가 -->
+       
         <a-gltf-model rotation="0 0 0" position="0 0 0.1" scale="0.005 0.005 0.005" 
                       src="#avatarModel" 
                       animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
