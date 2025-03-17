@@ -68,16 +68,15 @@
 </head>
 <body>
     <a-scene 
-        mindar-image="imageTargetSrc: card.mind;" 
+        mindar-image="imageTargetSrc: card.mind; autoStart: true;" 
         embedded 
-        arjs 
         vr-mode-ui="enabled: false" 
         device-orientation-permission-ui="enabled: true"
     >
-        <!-- MindAR 기본 카메라 사용 -->
-        <a-entity mindar-image-camera></a-entity>
+        <!-- 일반 카메라 사용 -->
+        <a-camera position="0 0 0"></a-camera>
 
-        <!-- 첫 번째 마커 (card.mind의 첫 번째 타겟) -->
+        <!-- 첫 번째 마커 -->
         <a-entity mindar-image-target="targetIndex: 0">
             <a-gltf-model src="glb/panda.glb" position="0 0 0" scale="0.5 0.5 0.5" rotation="0 180 0"></a-gltf-model>
         </a-entity>
