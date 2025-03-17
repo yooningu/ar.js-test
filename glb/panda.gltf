@@ -74,7 +74,7 @@
     "buffers": [
         {
             "byteLength": 1489312,
-            "uri": "panda_0.bin"
+            "uri": "https://yooningu.github.io/ar.js-test/glb/panda_0.bin"
         }
     ],
     "bufferViews": [
@@ -105,7 +105,7 @@
     ],
     "images": [
         {
-            "uri": "textures/image_0.png"
+            "uri": "https://yooningu.github.io/ar.js-test/glb/textures/image_0.png"
         }
     ],
     "materials": [
