@@ -62,19 +62,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindAR 기반 AR.js 스타일 코드</title>
+    <title>MindAR 기반 AR</title>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-image-aframe.prod.js"></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 </head>
 <body>
-    <a-scene mindar-image="imageTargetSrc: nft/card.mind;" embedded>
+    <a-scene 
+        mindar-image="imageTargetSrc: card.mind;" 
+        embedded 
+        arjs 
+        vr-mode-ui="enabled: false" 
+        device-orientation-permission-ui="enabled: true"
+    >
+        <!-- MindAR 기본 카메라 사용 -->
+        <a-entity mindar-image-camera></a-entity>
+
         <!-- 첫 번째 마커 (card.mind의 첫 번째 타겟) -->
         <a-entity mindar-image-target="targetIndex: 0">
-            <a-gltf-model src="glb/panda.glb" position="0 0 0" scale="0.1 0.1 0.1" rotation="0 180 0"></a-gltf-model>
+            <a-gltf-model src="glb/panda.glb" position="0 0 0" scale="0.5 0.5 0.5" rotation="0 180 0"></a-gltf-model>
         </a-entity>
-
-        <!-- 카메라 -->
-        <a-entity camera></a-entity>
     </a-scene>
 </body>
 </html>
