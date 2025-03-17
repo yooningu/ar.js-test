@@ -68,19 +68,24 @@
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-image-aframe.prod.js"></script>
 </head>
 <body>
-    <a-scene 
-        mindar-image="imageTargetSrc: nft/card.mind; autoStart: true;" 
-        embedded 
-        vr-mode-ui="enabled: false" 
-        device-orientation-permission-ui="enabled: true"
-    >
-        
-        <a-camera position="0 0 0"></a-camera>
+  <a-scene 
+    mindar-image="imageTargetSrc: nft/card.mind" 
+    embedded 
+    color-space="sRGB"
+    vr-mode-ui="enabled: false"
+  >
+    <!-- MindAR 전용 카메라 -->
+    <a-entity mindar-image-camera></a-entity>
 
-       
-        <a-entity mindar-image-target="targetIndex: 0">
-            <a-gltf-model src="glb/panda.glb" position="0 0 0" scale="0.5 0.5 0.5" rotation="0 180 0"></a-gltf-model>
-        </a-entity>
-    </a-scene>
+    <!-- ✅ 첫 번째 마커에 대한 객체 -->
+    <a-mindar-image-target mindar-image-target="targetIndex: 0">
+      <a-entity 
+        gltf-model="glb/panda.glb" 
+        scale="0.5 0.5 0.5" 
+        position="0 0 0"
+        rotation="0 -90 90"
+      ></a-entity>
+    </a-mindar-image-target>
+  </a-scene>
 </body>
 </html> 
