@@ -58,25 +58,40 @@
 
 
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindAR 기반 AR</title>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-image-aframe.prod.js"></script>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   </head>
-  
   <body>
     <!-- AR 장면 -->
-    <a-scene mindar-image="imageTargetSrc: nft/card.mind" embedded color-space="sRGB" vr-mode-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/nft/card.mind;" 
+              color-space="sRGB" 
+              renderer="colorManagement: true, physicallyCorrectLights" 
+              vr-mode-ui="enabled: false" 
+              device-orientation-permission-ui="enabled: false">
+              
+      <!-- 자산 로딩 -->
+      <a-assets>
+        <img id="card" src="https://yooningu.github.io/ar.js-test/images/test.jpg" />
+        <a-asset-item id="avatarModel" src="https://yooningu.github.io/ar.js-test/glb/panda.glb"></a-asset-item>
+      </a-assets>
+
       <!-- 카메라 설정 -->
-      <a-entity mindar-image-camera></a-entity>
-  
-      <!-- 첫 번째 이미지 타겟 -->
-      <a-mindar-image-target mindar-image-target="targetIndex: 0">
-        <!-- 3D 모델 -->
-        <a-entity gltf-model="glb/panda.glb" scale="0.5 0.5 0.5" position="0 0 0"></a-entity>
-      </a-mindar-image-target>
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      
+      <!-- 이미지 타겟 추가 -->
+      <a-entity mindar-image-target="targetIndex: 0">
+        <!-- 카드 이미지 -->
+        <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+        
+        <!-- 3D 모델 추가 -->
+        <a-gltf-model rotation="0 0 0" position="0 0 0.1" scale="0.005 0.005 0.005" 
+                      src="#avatarModel" 
+                      animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+        </a-gltf-model>
+      </a-entity>
     </a-scene>
   </body>
+</html>
