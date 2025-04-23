@@ -150,8 +150,14 @@
  
 
          <!-- 판타지 느낌 아이콘  -->
- <a-scene mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/nft/logo-p.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-  <a-assets>
+ <!--<a-scene mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/nft/logo-p.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+  <a-assets>-->
+    <a-scene 
+  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/nft/logo-p.mind; filterMinCF: 0.0001; filterBeta: 0.01;" 
+  color-space="sRGB" 
+  renderer="colorManagement: true, physicallyCorrectLights" 
+  vr-mode-ui="enabled: false" 
+  device-orientation-permission-ui="enabled: false">
 <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/glb/logo/logo-p.gltf" />
   </a-assets>
 
@@ -160,7 +166,7 @@
   <a-entity mindar-image-target="targetIndex: 0">
     <!-- <img id="card" src="https://yooningu.github.io/ar.js-test/images/test.jpg" />
     <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> -->
-    <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="8 8 8" src="#avatarModel"
+    <a-gltf-model rotation="0 0 0 " position="0 0 0.2" scale="8 8 8" src="#avatarModel"
     >
 
 
