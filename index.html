@@ -143,10 +143,42 @@
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   </head>
+  <style>
+
+
+  @font-face {
+    font-family: 'Ownglyph_meetme-Rg';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #57005f; /* 진한 네이비 블랙 */
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'Ownglyph_meetme-Rg';
+      z-index: 1000; /* 다른 요소 위에 뜨게 */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      color: #e2c11c;
+      font-size: 150%;
+      letter-spacing: 1px;
+    }
+    </style>
   <body>
 
       
-
+<div class="header">FixiToy</div>
  
 
          <!-- 판타지 느낌 아이콘  -->
