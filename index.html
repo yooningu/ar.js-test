@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
 
-
+<!--
   <script>
   document.addEventListener("DOMContentLoaded", () => {
     const sceneEl = document.querySelector("a-scene");
@@ -41,7 +41,7 @@
       observer.disconnect(); // 감시 중단
     });
   });
-</script>
+</script>     -->
   </head>
   
 
@@ -59,7 +59,15 @@
  
 
          <!-- 판타지 느낌 아이콘  -->
- <a-scene mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/nft/logo-p1.mind;filterMinCF:0.0001;filterBeta:0.01;uiLoading:no;"  color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+ <a-scene 
+  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/nft/logo-p1.mind;filterMinCF:0.0001;filterBeta:0.01;uiScanning: #loading; uiError: no; uiLoading: no" 
+  color-space="sRGB" 
+  renderer="colorManagement: true, physicallyCorrectLights" 
+  vr-mode-ui="enabled: false" 
+  device-orientation-permission-ui="enabled: false">
+
+
+
   <a-assets>
 <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/glb/logo-p1/logo-p1.gltf" />
   </a-assets>
