@@ -14,7 +14,7 @@
 
 
 
-    <script>
+  <script>
   document.addEventListener("DOMContentLoaded", () => {
     const sceneEl = document.querySelector("a-scene");
     const loading = document.getElementById("loading");
@@ -23,21 +23,24 @@
     const mindarInitial = document.querySelector(".mindar-ui-loading");
     if (mindarInitial) mindarInitial.style.display = "none";
 
-    // ② 스캔 로딩 (.mindar-ui-scanning) 등장 시 #loading 내용으로 대체
-    const interval = setInterval(() => {
+    // ② 스캔 로딩(.mindar-ui-scanning) 생성 감지 → 커스텀 UI로 교체
+    const observer = new MutationObserver(() => {
       const scanning = document.querySelector(".mindar-ui-scanning");
       if (scanning && loading) {
         scanning.innerHTML = loading.innerHTML;
         scanning.style.cssText = loading.style.cssText;
-        clearInterval(interval);
+        observer.disconnect(); // 더 이상 감지 안 해도 됨
       }
-    }, 100);
+    });
 
-    // ③ A-Frame 로딩 완료 시 #loading 숨기기
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // ③ A-Frame 로딩 완료 시 모든 로딩 숨김
     sceneEl.addEventListener("loaded", () => {
-      if (loading) {
-        loading.style.display = "none";
-      }
+      if (loading) loading.style.display = "none";
+
+      const scanningUI = document.querySelector(".mindar-ui-scanning");
+      if (scanningUI) scanningUI.style.display = "none";
     });
   });
 </script>
