@@ -11,12 +11,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+
+
     <script>
-      // 도넛 로딩 숨기기기
   document.addEventListener("DOMContentLoaded", () => {
-  const mindarContainer = document.querySelector(".mindar-ui-loading");
-  if (mindarContainer) mindarContainer.style.display = "none";
-});
+    const mindarContainer = document.querySelector(".mindar-ui-loading");
+    if (mindarContainer) mindarContainer.style.display = "none";
+
+    const customLoading = document.getElementById("loading");
+
+    // mindar가 완전히 로딩된 후 숨기기
+    const sceneEl = document.querySelector("a-scene");
+    sceneEl.addEventListener("loaded", () => {
+      if (customLoading) {
+        customLoading.style.display = "none";
+      }
+    });
+  });
 </script>
   </head>
   

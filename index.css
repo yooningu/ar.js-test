@@ -56,8 +56,11 @@
   margin-top: 15px;
 }
 
-/* 회전 애니메이션 */
 @keyframes rotate360 {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg); /* ✅ 반시계 방향으로 변경 */
+  }
 }
