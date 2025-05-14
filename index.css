@@ -41,8 +41,8 @@
 
 /* 로딩 이미지 스타일 */
 #cat-loading {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   animation: rotate360 1.5s linear infinite;
 }
 
