@@ -97,9 +97,8 @@
   </body>
   <script>
     document.querySelector("a-scene").addEventListener("loaded", () => {
-    const loading = document.getElementById("loading");
-    if (loading) loading.classList.add("hidden");
-  });
+  document.getElementById("loading").classList.add("hidden");
+});
   </script>
 </html>
 
