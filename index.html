@@ -42,25 +42,7 @@
     });
   });
 </script>     -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const scene = document.querySelector("a-scene");
-    const loading = document.getElementById("loading");
 
-    if (scene) {
-      scene.addEventListener("loaded", () => {
-        if (loading) {
-          loading.style.display = "none";  // 커스텀 UI 숨기기
-          console.log("#loading 숨김 완료 ✅");
-        } else {
-          console.warn("#loading 요소를 찾을 수 없습니다 ❌");
-        }
-      });
-    } else {
-      console.warn("a-scene 요소가 없습니다 ❌");
-    }
-  });
-</script>
 
   </head>
   
@@ -113,6 +95,12 @@
 
 
   </body>
+  <script>
+    document.querySelector("a-scene").addEventListener("loaded", () => {
+    const loading = document.getElementById("loading");
+    if (loading) loading.classList.add("hidden");
+  });
+  </script>
 </html>
 
 
