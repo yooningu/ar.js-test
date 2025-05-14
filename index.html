@@ -44,13 +44,20 @@
 </script>     -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const assets = document.querySelector("a-assets");
+    const scene = document.querySelector("a-scene");
     const loading = document.getElementById("loading");
 
-    if (assets) {
-      assets.addEventListener("loaded", () => {
-        if (loading) loading.style.display = "none";
+    if (scene) {
+      scene.addEventListener("loaded", () => {
+        if (loading) {
+          loading.style.display = "none";  // 커스텀 UI 숨기기
+          console.log("#loading 숨김 완료 ✅");
+        } else {
+          console.warn("#loading 요소를 찾을 수 없습니다 ❌");
+        }
       });
+    } else {
+      console.warn("a-scene 요소가 없습니다 ❌");
     }
   });
 </script>
