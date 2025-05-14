@@ -16,23 +16,24 @@
 
     <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const mindarContainer = document.querySelector(".mindar-ui-loading");
-    if (mindarContainer) mindarContainer.style.display = "none";
-
     const sceneEl = document.querySelector("a-scene");
     const loading = document.getElementById("loading");
 
-    // MindAR의 scanning 로딩을 #loading으로 대체
+    // ① 초기 로딩 숨기기
+    const mindarInitial = document.querySelector(".mindar-ui-loading");
+    if (mindarInitial) mindarInitial.style.display = "none";
+
+    // ② 스캔 로딩 (.mindar-ui-scanning) 등장 시 #loading 내용으로 대체
     const interval = setInterval(() => {
       const scanning = document.querySelector(".mindar-ui-scanning");
       if (scanning && loading) {
-        scanning.innerHTML = loading.innerHTML; // ✅ #loading 안의 내용 복사
-        scanning.style = loading.style.cssText; // ✅ 스타일도 복사
-        clearInterval(interval); // ✅ 반복 중지
+        scanning.innerHTML = loading.innerHTML;
+        scanning.style.cssText = loading.style.cssText;
+        clearInterval(interval);
       }
-    }, 100); // DOM이 생성될 때까지 대기
+    }, 100);
 
-    // A-Frame 로딩 완료 시 숨김
+    // ③ A-Frame 로딩 완료 시 #loading 숨기기
     sceneEl.addEventListener("loaded", () => {
       if (loading) {
         loading.style.display = "none";
