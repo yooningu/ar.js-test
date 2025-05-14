@@ -43,12 +43,7 @@
   });
 </script>     -->
 
-<script>
-  document.querySelector("a-scene").addEventListener("loaded", () => {
-    const loading = document.getElementById("loading");
-    if (loading) loading.style.display = "none";
-  });
-</script>
+
   </head>
   
 
@@ -100,6 +95,12 @@
 
 
   </body>
+  <script>
+  document.querySelector("a-scene").addEventListener("loaded", () => {
+    const loading = document.getElementById("loading");
+    if (loading) loading.style.display = "none";
+  });
+</script>
 </html>
 
 
