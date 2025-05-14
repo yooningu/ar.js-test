@@ -19,28 +19,26 @@
     const sceneEl = document.querySelector("a-scene");
     const loading = document.getElementById("loading");
 
-    // ① 초기 로딩 숨기기
-    const mindarInitial = document.querySelector(".mindar-ui-loading");
-    if (mindarInitial) mindarInitial.style.display = "none";
+    // ① mindar의 기본 UI들 모두 즉시 숨기기 (.loading + .scanning)
+    const hideMindarUI = () => {
+      const mindarLoading = document.querySelector(".mindar-ui-loading");
+      const mindarScanning = document.querySelector(".mindar-ui-scanning");
+      if (mindarLoading) mindarLoading.style.display = "none";
+      if (mindarScanning) mindarScanning.style.display = "none";
+    };
 
-    // ② 스캔 로딩(.mindar-ui-scanning) 생성 감지 → 커스텀 UI로 교체
+    hideMindarUI(); // DOMContentLoaded 시점에서 한 번 시도
+
+    // DOM이 동적으로 변하면서 .mindar-ui-scanning이 생길 수 있으므로 MutationObserver로도 감시
     const observer = new MutationObserver(() => {
-      const scanning = document.querySelector(".mindar-ui-scanning");
-      if (scanning && loading) {
-        scanning.innerHTML = loading.innerHTML;
-        scanning.style.cssText = loading.style.cssText;
-        observer.disconnect(); // 더 이상 감지 안 해도 됨
-      }
+      hideMindarUI(); // 다시 시도 (생성됐을 수도 있음)
     });
-
     observer.observe(document.body, { childList: true, subtree: true });
 
-    // ③ A-Frame 로딩 완료 시 모든 로딩 숨김
+    // ② a-scene 로딩 완료 시 커스텀 로딩 UI(#loading) 숨김
     sceneEl.addEventListener("loaded", () => {
       if (loading) loading.style.display = "none";
-
-      const scanningUI = document.querySelector(".mindar-ui-scanning");
-      if (scanningUI) scanningUI.style.display = "none";
+      observer.disconnect(); // 감시 중단
     });
   });
 </script>
