@@ -27,11 +27,11 @@
 }
 
 /* 로딩 전체 화면 스타일 */
-#custom-loading {
+#loading {
   position: fixed !important;
   width: 100% !important;
   height: 100% !important;
-  background-color: rgba(0, 0, 0, 0.2) !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;

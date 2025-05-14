@@ -51,7 +51,7 @@
 
   <body>
 
-    <div id="custom-loading">
+    <div id="loading">
   <img src="https://yooningu.github.io/ar.js-test/svg/cat-loading.svg" alt="로딩 아이콘" id="cat-loading" />
   <p>마법을 준비 중...</p>
 </div>
@@ -94,8 +94,11 @@
 
 
 <script>
-  document.querySelector("a-scene").addEventListener("custom-loading", () => {
-    document.getElementById("custom-loading").style.setProperty("display", "none", "important");
+  document.querySelector("a-scene").addEventListener("loaded", () => {
+    const loading = document.getElementById("loading");
+    if (loading) {
+      loading.style.setProperty("display", "none", "important");
+    }
   });
 </script>
 
