@@ -19,13 +19,13 @@
     const mindarContainer = document.querySelector(".mindar-ui-loading");
     if (mindarContainer) mindarContainer.style.display = "none";
 
-    const customLoading = document.getElementById("loading");
+    const loading = document.getElementById("loading");
 
     // mindar가 완전히 로딩된 후 숨기기
     const sceneEl = document.querySelector("a-scene");
     sceneEl.addEventListener("loaded", () => {
-      if (customLoading) {
-        customLoading.style.display = "none";
+      if (loading) {
+        loading.style.display = "none";
       }
     });
   });
