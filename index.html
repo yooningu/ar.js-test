@@ -51,7 +51,7 @@
 
   <body>
 
-    <div id="loading">
+    <div id="custom-loading">
   <img src="https://yooningu.github.io/ar.js-test/svg/cat-loading.svg" alt="로딩 아이콘" id="cat-loading" />
   <p>마법을 준비 중...</p>
 </div>
@@ -67,15 +67,6 @@
   renderer="colorManagement: true, physicallyCorrectLights" 
   vr-mode-ui="enabled: false" 
   device-orientation-permission-ui="enabled: false">
-
-
-  <script>
-    document.querySelector("a-scene").addEventListener("loaded", () => {
-      document.getElementById("loading").style.display = "none";
-    });
-  </script>
-
-  
 <!-- uiError: no; uiLoading: no 스켄이랑 에러 화면 숨기기 -->
 
 
@@ -102,7 +93,13 @@
 
 
 
+<script>
+  document.querySelector("a-scene").addEventListener("custom-loading", () => {
+    document.getElementById("custom-loading").style.setProperty("display", "none", "important");
+  });
+</script>
 
+<!-- 스크립 바닥 고정-->
   </body>
  
 </html>

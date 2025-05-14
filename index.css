@@ -27,7 +27,7 @@
 }
 
 /* 로딩 전체 화면 스타일 */
-#loading {
+#custom-loading {
   position: fixed !important;
   width: 100% !important;
   height: 100% !important;
