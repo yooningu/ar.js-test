@@ -67,6 +67,15 @@
   renderer="colorManagement: true, physicallyCorrectLights" 
   vr-mode-ui="enabled: false" 
   device-orientation-permission-ui="enabled: false">
+
+
+  <script>
+    document.querySelector("a-scene").addEventListener("loaded", () => {
+      document.getElementById("loading").style.display = "none";
+    });
+  </script>
+
+  
 <!-- uiError: no; uiLoading: no 스켄이랑 에러 화면 숨기기 -->
 
 
@@ -95,11 +104,7 @@
 
 
   </body>
-  <script>
-    document.querySelector("a-scene").addEventListener("loaded", () => {
-      document.getElementById("loading").style.display = "none";
-    });
-  </script>
+ 
 </html>
 
 
