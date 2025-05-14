@@ -94,6 +94,27 @@
 
 
 <script>
+  const loading = document.getElementById("loading");
+
+  // scanning UI가 나타나는지 감지하는 관찰자
+  const observer = new MutationObserver(() => {
+    const scanningUI = document.querySelector(".mindar-ui-scanning");
+    if (scanningUI && scanningUI.style.display !== "none") {
+      if (loading) {
+        loading.style.setProperty("display", "none", "important");
+        observer.disconnect(); // 감지 끝내기
+      }
+    }
+  });
+
+  // body 전체를 감시하되, DOM 추가가 있을 때만 반응
+  observer.observe(document.body, { childList: true, subtree: true });
+</script>
+
+
+
+<!--
+<script>
   document.querySelector("a-scene").addEventListener("loaded", () => {
     const loading = document.getElementById("loading");
     if (loading) {
@@ -102,7 +123,7 @@
   });
 </script>
 
-<!-- 스크립 바닥 고정-->
+ 스크립 바닥 고정-->
   </body>
  
 </html>
