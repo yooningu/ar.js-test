@@ -43,8 +43,8 @@
 
 /* 로딩 이미지 스타일 */
 #cat-loading {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   animation: rotate360 1.5s linear infinite;
 }
 
@@ -52,7 +52,7 @@
 #loading p {
   font-family: 'Ownglyph_meetme-Rg';
   color: white;
-  font-size: 18px;
+  font-size: 32px;
   margin-top: 15px;
 }
 

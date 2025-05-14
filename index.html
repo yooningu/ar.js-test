@@ -42,6 +42,13 @@
     });
   });
 </script>     -->
+
+<script>
+  document.querySelector("a-scene").addEventListener("loaded", () => {
+    const loading = document.getElementById("loading");
+    if (loading) loading.style.display = "none";
+  });
+</script>
   </head>
   
 
@@ -60,12 +67,12 @@
 
          <!-- 판타지 느낌 아이콘  -->
  <a-scene 
-  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/nft/logo-p1.mind;filterMinCF:0.0001;filterBeta:0.01;uiScanning: #loading; uiError: no; uiLoading: no" 
+  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/nft/logo-p1.mind;filterMinCF:0.0001;filterBeta:0.01;uiScanning: #loading; " 
   color-space="sRGB" 
   renderer="colorManagement: true, physicallyCorrectLights" 
   vr-mode-ui="enabled: false" 
   device-orientation-permission-ui="enabled: false">
-
+<!-- uiError: no; uiLoading: no 스켄이랑 에러 화면 숨기기 -->
 
 
   <a-assets>
