@@ -19,10 +19,20 @@
     const mindarContainer = document.querySelector(".mindar-ui-loading");
     if (mindarContainer) mindarContainer.style.display = "none";
 
+    const sceneEl = document.querySelector("a-scene");
     const loading = document.getElementById("loading");
 
-    // mindar가 완전히 로딩된 후 숨기기
-    const sceneEl = document.querySelector("a-scene");
+    // MindAR의 scanning 로딩을 #loading으로 대체
+    const interval = setInterval(() => {
+      const scanning = document.querySelector(".mindar-ui-scanning");
+      if (scanning && loading) {
+        scanning.innerHTML = loading.innerHTML; // ✅ #loading 안의 내용 복사
+        scanning.style = loading.style.cssText; // ✅ 스타일도 복사
+        clearInterval(interval); // ✅ 반복 중지
+      }
+    }, 100); // DOM이 생성될 때까지 대기
+
+    // A-Frame 로딩 완료 시 숨김
     sceneEl.addEventListener("loaded", () => {
       if (loading) {
         loading.style.display = "none";
