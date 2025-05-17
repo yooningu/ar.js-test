@@ -1,49 +1,11 @@
-
-
 <html>
-  
-
-
   <head>
     <title>ingu's joljak</title>
     <link rel="stylesheet" href="index.css" />
-     <!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> 파비콘 아이콘-->
+    <link rel="icon" href="svg/favicon.svg" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-
-
-<!--
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const sceneEl = document.querySelector("a-scene");
-    const loading = document.getElementById("loading");
-
-    // ① mindar의 기본 UI들 모두 즉시 숨기기 (.loading + .scanning)
-    const hideMindarUI = () => {
-      const mindarLoading = document.querySelector(".mindar-ui-loading");
-      const mindarScanning = document.querySelector(".mindar-ui-scanning");
-      if (mindarLoading) mindarLoading.style.display = "none";
-      if (mindarScanning) mindarScanning.style.display = "none";
-    };
-
-    hideMindarUI(); // DOMContentLoaded 시점에서 한 번 시도
-
-    // DOM이 동적으로 변하면서 .mindar-ui-scanning이 생길 수 있으므로 MutationObserver로도 감시
-    const observer = new MutationObserver(() => {
-      hideMindarUI(); // 다시 시도 (생성됐을 수도 있음)
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    // ② a-scene 로딩 완료 시 커스텀 로딩 UI(#loading) 숨김
-    sceneEl.addEventListener("loaded", () => {
-      if (loading) loading.style.display = "none";
-      observer.disconnect(); // 감시 중단
-    });
-  });
-</script>     -->
-
-
   </head>
   
 
@@ -74,16 +36,27 @@
 <!-- <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/gltf/logo-p1/logo-p1.gltf" /> -->
   <a-asset-item id="logo" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/gltf/logo-p1/logo-p1.gltf" />
     <a-asset-item id="test" src="https://yooningu.github.io/ar.js-test/gltf/nanachi/scene.gltf" />
+    <!-- 모델 분류 하는 곳 id: 객체 이름, src: 경로 -->
   </a-assets>
   <!-- mind 객체 탐지 준비 -->
 
   <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
 
+
+
+
+<!-- ------------------------------------------------------------------------------------------모델 넣는 곳 -->
   <a-entity mindar-image-target="targetIndex: 0">
     <!-- <img id="card" src="https://yooningu.github.io/ar.js-test/images/test.jpg" />
     <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> 사진 넣을 때-->
     <a-gltf-model rotation="0 0 0 " position="0 0 0.2" scale="5 5 5" src="#logo"/>
+    <!-- mindar-image-target에 각각 번호 부여
+
+    사진을 정면으로 봤을 때 0 1 2 라고 치면 
+    1은 세로로 그니깐 상단쪽이 하늘을 보게 됨 
+    2는 반시계로 돎 
+    -->
   </a-entity>
 
 <a-entity mindar-image-target="targetIndex: 1">
