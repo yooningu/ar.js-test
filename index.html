@@ -27,7 +27,7 @@
 
          <!-- 판타지 느낌 아이콘  -->
  <a-scene 
-  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test1.mind;filterMinCF:0.0001;filterBeta:0.01; uiLoading: no; maxTrack: 10" 
+  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.1; uiLoading: no; maxTrack: 10" 
   color-space="sRGB" 
   renderer="colorManagement: true, physicallyCorrectLights" 
   vr-mode-ui="enabled: false" 
@@ -37,8 +37,9 @@
 
   <a-assets>
 <!-- <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/gltf/logo-p1/logo-p1.gltf" /> -->
-  <a-asset-item id="logo" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/gltf/logo-p1/logo-p1.gltf" />
+    <a-asset-item id="logo" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/gltf/logo-p1/logo-p1.gltf" />
     <a-asset-item id="test" src="https://yooningu.github.io/ar.js-test/gltf/nanachi/scene.gltf" />
+    <a-asset-item id="glbtest" src="https://yooningu.github.io/ar.js-test/gltf/test/test1.glb" />
     <!-- 모델 분류 하는 곳 id: 객체 이름, src: 경로 -->
   </a-assets>
   <!-- mind 객체 탐지 준비 -->
@@ -50,7 +51,7 @@
 
 
 <!-- ------------------------------------------------------------------------------------------모델 넣는 곳 -->
-  <a-entity mindar-image-target="targetIndex: 0">
+    <a-entity mindar-image-target="targetIndex: 0">
     <!-- <img id="card" src="https://yooningu.github.io/ar.js-test/images/test.jpg" />
     <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> 사진 넣을 때-->
     <a-gltf-model rotation="0 0 0 " position="0 0 0.2" scale="5 5 5" src="#logo"/>
@@ -62,13 +63,16 @@
     -->
   </a-entity>
 
-<a-entity mindar-image-target="targetIndex: 1">
+  <a-entity mindar-image-target="targetIndex: 1">
     <!-- <img id="card" src="https://yooningu.github.io/ar.js-test/images/test.jpg" />
     <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> 사진 넣을 때-->
     <a-gltf-model rotation="90 0 90 " position="0 0 0.2" scale="0.1 0.1 0.1" src="#test"/>
-    <!-- 사진을 정면으로 봤을 때 0 1 2 라고 치면 
-    1은 세로로 그니깐 상단쪽이 하늘을 보게 됨됨 
-    2는 반시계로 돎돎 -->
+  </a-entity>
+
+   <a-entity mindar-image-target="targetIndex: 2">
+    <!-- <img id="card" src="https://yooningu.github.io/ar.js-test/images/test.jpg" />
+    <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> 사진 넣을 때-->
+    <a-gltf-model rotation="90 0 90 " position="0 0 0.2" scale="1 1 1" src="#glbtest"/>
   </a-entity>
 
 </a-scene>
