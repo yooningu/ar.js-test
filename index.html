@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
   </head>
   
 
@@ -50,18 +51,22 @@
 
 
 
-<!-- ------------------------------------------------------------------------------------------모델 넣는 곳 -->
+<!-- ---------------------------------------------------------------------------------------          ---모델 넣는 곳 -->
+
+
+
     <a-entity mindar-image-target="targetIndex: 0">
     <!-- <img id="card" src="https://yooningu.github.io/ar.js-test/images/test.jpg" />
     <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> 사진 넣을 때-->
     <a-gltf-model rotation="0 0 0 " position="0 0 0.2" scale="5 5 5" src="#logo"/>
-    <!-- mindar-image-target에 각각 번호 부여
+   </a-entity>
 
+    <!-- mindar-image-target에 각각 번호 부여 
     사진을 정면으로 봤을 때 0 1 2 라고 치면 
     1은 세로로 그니깐 상단쪽이 하늘을 보게 됨 
     2는 반시계로 돎 
     -->
-  </a-entity>
+  
 
   <a-entity mindar-image-target="targetIndex: 1">
     <!-- <img id="card" src="https://yooningu.github.io/ar.js-test/images/test.jpg" />
@@ -70,9 +75,7 @@
   </a-entity>
 
    <a-entity mindar-image-target="targetIndex: 2">
-    <!-- <img id="card" src="https://yooningu.github.io/ar.js-test/images/test.jpg" />
-    <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> 사진 넣을 때-->
-    <a-gltf-model rotation="0 0 0" position="0 0 0.2" scale="1 1 1" src="#glbtest" animation-mixer >
+    <a-gltf-model rotation="0 0 0" position="0 0 0.2" scale="0.1 0.1 0.1" src="#glbtest" animation-mixer >
   <!-- animation-mixer 애니메이션 있으면 넣어야함 아니면 안움직임 -->
   </a-entity>
 
