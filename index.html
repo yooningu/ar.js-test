@@ -22,13 +22,17 @@
   <p>마법을 준비 중...</p>
 </div>
 
+<div id="custom-scanning">
+   <img src="https://yooningu.github.io/ar.js-test/svg/scan.svg" alt="스캔 아이콘" id="scan" />
+  📷 스캔 중입니다... 마법의 순간을 기다려주세요!
+</div>
       
 <div id="header">PixiToy</div>
  
 
          <!-- 판타지 느낌 아이콘  -->
  <a-scene 
-  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.1; uiLoading: no; maxTrack: 10" 
+  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.1; uiScanning: #custom-scanning; uiLoading: no; maxTrack: 10" 
   color-space="sRGB" 
   renderer="colorManagement: true, physicallyCorrectLights" 
   vr-mode-ui="enabled: false" 
@@ -89,8 +93,32 @@
 
 
 
-
 <script>
+  const loading = document.getElementById("loading");
+  const scanning = document.getElementById("custom-scanning");
+  const scene = document.querySelector("a-scene");
+
+  // 1. 페이지가 처음 로드될 때 로딩 숨김
+  window.addEventListener("load", () => {
+    loading.style.setProperty("display", "none", "important");
+  });
+
+  // 2. mindar가 시작되면 로딩 숨기고 스캔 UI 표시
+  scene.addEventListener("mindar-start", () => {
+    loading.style.display = "none";
+    scanning.style.display = "flex";
+  });
+
+  // 3. 타겟이 인식되면 스캔 UI 숨기기
+  document.querySelectorAll("a-entity[mindar-image-target]").forEach(entity => {
+    entity.addEventListener("targetFound", () => {
+      scanning.style.display = "none";
+    });
+  });
+</script>
+
+
+<!-- <script>
   const loading = document.getElementById("loading");
 
   // scanning UI가 나타나는지 감지하는 관찰자
@@ -106,66 +134,9 @@
 
   // body 전체를 감시하되, DOM 추가가 있을 때만 반응
   observer.observe(document.body, { childList: true, subtree: true });
-</script>
+</script> -->
 
-
-
-<!-- 위에거나 이거나 비슷한듯
-<script>
-  document.querySelector("a-scene").addEventListener("loaded", () => {
-    const loading = document.getElementById("loading");
-    if (loading) {
-      loading.style.setProperty("display", "none", "important");
-    }
-  });
-</script>
-
- 스크립 바닥 고정-->
+ <!-- 스크립 바닥 고정--> 
   </body>
  
 </html>
-
-
-
-
-
-<!--     
-    <a-scene
-    mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/nft/card.mind, https://yooningu.github.io/ar.js-test/nft/logo-p.mind;"
-    color-space="sRGB"
-    renderer="colorManagement: true, physicallyCorrectLights"
-    vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: false"
-  >
-    <a-assets>
-      <a-asset-item id="wolfModel" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/glb/gltf/Wolf-Blender-2.82a.gltf" />
-      <a-asset-item id="logoModel" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/glb/logo/logo-p.gltf" />
-    </a-assets>
-
-    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-    
-    <a-entity mindar-image-target="targetIndex: 0">
-      <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-      <a-gltf-model
-        rotation="0 0 0"
-        position="0 0 0.1"
-        scale="1 1 1"
-        src="#wolfModel"
-        animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
-      ></a-gltf-model>
-    </a-entity>
-
-   
-    <a-entity mindar-image-target="targetIndex: 1">
-      <a-gltf-model
-        rotation="0 0 0"
-        position="0 0 0.1"
-        scale="1 1 1"
-        src="#logoModel"
-        animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
-      ></a-gltf-model>
-    </a-entity>
-  </a-scene>
-</body> -->
-
