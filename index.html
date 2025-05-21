@@ -12,15 +12,6 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
 
  <style>
-      #example-Loading-overlay {
-        
-      }
-      #example-Loading-overlay.hidden {
-        display: none;
-      }
-
-       #scanning {
-      }
       #scanning.hidden {
         display: none;
       }
@@ -35,8 +26,8 @@
 
   <body>
 
-    <div id="#example-Loading-overlay" class="hidden">
-  <img src="https://yooningu.github.io/ar.js-test/svg/cat-loading.svg" alt="로딩 아이콘" id="cat-loadinga" />
+    <div id="loading">
+  <img src="https://yooningu.github.io/ar.js-test/svg/cat-loading.svg" alt="로딩 아이콘" id="cat-loading" />
   <p>마법을 준비 중...</p>
 </div>
 
@@ -50,7 +41,7 @@
 
          <!-- 판타지 느낌 아이콘  -->
  <a-scene 
-  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.1; uiScanning: #scanning; uiLoading: #example-Loading-overlay; maxTrack: 10" 
+  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.1; uiScanning: #scanning; uiLoading: no; maxTrack: 12" 
   color-space="sRGB" 
   renderer="colorManagement: true, physicallyCorrectLights" 
   vr-mode-ui="enabled: false" 
@@ -136,7 +127,7 @@
 </script> -->
 
 
-<!-- <script>
+<script>
   const loading = document.getElementById("loading");
 
   // scanning UI가 나타나는지 감지하는 관찰자
@@ -152,7 +143,7 @@
 
   // body 전체를 감시하되, DOM 추가가 있을 때만 반응
   observer.observe(document.body, { childList: true, subtree: true });
-</script> -->
+</script> 
 
  <!-- 스크립 바닥 고정--> 
   </body>
