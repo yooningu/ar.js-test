@@ -10,15 +10,12 @@
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
-
- <style>
-      #scanning.hidden {
+    <style>
+      #sanning.hidden{
         display: none;
+
       }
-      
-      
-  </style>
-    
+    </style>
   </head>
   
 
@@ -30,18 +27,17 @@
   <img src="https://yooningu.github.io/ar.js-test/svg/cat-loading.svg" alt="로딩 아이콘" id="cat-loading" />
   <p>마법을 준비 중...</p>
 </div>
-
 <div id="scanning" class="hidden">
-   <img src="https://yooningu.github.io/ar.js-test/svg/scan.svg" alt="스캔 아이콘" id="scan" />
-  📷 스캔 중입니다... 마법의 순간을 기다려주세요!
+  <img src="https://yooningu.github.io/ar.js-test/svg/scan.svg" alt="스캔 아이콘" id="scan" />
 </div>
+
       
 <div id="header">PixiToy</div>
  
 
          <!-- 판타지 느낌 아이콘  -->
  <a-scene 
-  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.1; uiScanning: #scanning; uiLoading: no; maxTrack: 12" 
+  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.1; uiScanning: #scanning; uiLoading: no; maxTrack: 10" 
   color-space="sRGB" 
   renderer="colorManagement: true, physicallyCorrectLights" 
   vr-mode-ui="enabled: false" 
@@ -100,31 +96,7 @@
 
 
 
-<!-- 
 
-<script>
-  const loading = document.getElementById("loading");
-  const scanning = document.getElementById("custom-scanning");
-  const scene = document.querySelector("a-scene");
-
-  // 1. 페이지가 처음 로드될 때 로딩 숨김
-  window.addEventListener("load", () => {
-    loading.style.setProperty("display", "none", "important");
-  });
-
-  // 2. mindar가 시작되면 로딩 숨기고 스캔 UI 표시
-  scene.addEventListener("mindar-start", () => {
-    loading.style.display = "none";
-    scanning.style.display = "flex";
-  });
-
-  // 3. 타겟이 인식되면 스캔 UI 숨기기
-  document.querySelectorAll("a-entity[mindar-image-target]").forEach(entity => {
-    entity.addEventListener("targetFound", () => {
-      scanning.style.display = "none";
-    });
-  });
-</script> -->
 
 
 <script>
@@ -143,8 +115,7 @@
 
   // body 전체를 감시하되, DOM 추가가 있을 때만 반응
   observer.observe(document.body, { childList: true, subtree: true });
-</script> 
-
+</script>
  <!-- 스크립 바닥 고정--> 
   </body>
  
