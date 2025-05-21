@@ -19,9 +19,9 @@
         display: none;
       }
 
-       #example-scanning-overlay {
+       #scanning {
       }
-      #example-scanning-overlay.hidden {
+      #scanning.hidden {
         display: none;
       }
       
@@ -40,7 +40,7 @@
   <p>마법을 준비 중...</p>
 </div>
 
-<div id="example-scanning-overlay" class="hidden">
+<div id="scanning" class="hidden">
    <img src="https://yooningu.github.io/ar.js-test/svg/scan.svg" alt="스캔 아이콘" id="scan" />
   📷 스캔 중입니다... 마법의 순간을 기다려주세요!
 </div>
@@ -50,7 +50,7 @@
 
          <!-- 판타지 느낌 아이콘  -->
  <a-scene 
-  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.1; uiScanning: #example-scanning-overlay; uiLoading: #example-Loading-overlay; maxTrack: 10" 
+  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.1; uiScanning: #scanning; uiLoading: #example-Loading-overlay; maxTrack: 10" 
   color-space="sRGB" 
   renderer="colorManagement: true, physicallyCorrectLights" 
   vr-mode-ui="enabled: false" 
