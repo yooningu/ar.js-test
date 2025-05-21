@@ -10,12 +10,6 @@
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script>
-    <style>
-      #sanning.hidden{
-        display: none;
-
-      }
-    </style>
   </head>
   
 
@@ -27,9 +21,6 @@
   <img src="https://yooningu.github.io/ar.js-test/svg/cat-loading.svg" alt="로딩 아이콘" id="cat-loading" />
   <p>마법을 준비 중...</p>
 </div>
-<div id="scanning" class="hidden">
-  <img src="https://yooningu.github.io/ar.js-test/svg/scan.svg" alt="스캔 아이콘" id="scan" />
-</div>
 
       
 <div id="header">PixiToy</div>
@@ -37,7 +28,7 @@
 
          <!-- 판타지 느낌 아이콘  -->
  <a-scene 
-  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.1; uiScanning: #scanning; uiLoading: no; maxTrack: 10" 
+  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.1; uiLoading: no; maxTrack: 10" 
   color-space="sRGB" 
   renderer="colorManagement: true, physicallyCorrectLights" 
   vr-mode-ui="enabled: false" 
@@ -116,7 +107,65 @@
   // body 전체를 감시하되, DOM 추가가 있을 때만 반응
   observer.observe(document.body, { childList: true, subtree: true });
 </script>
- <!-- 스크립 바닥 고정--> 
+
+
+
+<!-- 위에거나 이거나 비슷한듯
+<script>
+  document.querySelector("a-scene").addEventListener("loaded", () => {
+    const loading = document.getElementById("loading");
+    if (loading) {
+      loading.style.setProperty("display", "none", "important");
+    }
+  });
+</script>
+
+ 스크립 바닥 고정-->
   </body>
  
 </html>
+
+
+
+
+
+<!--     
+    <a-scene
+    mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/nft/card.mind, https://yooningu.github.io/ar.js-test/nft/logo-p.mind;"
+    color-space="sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false"
+  >
+    <a-assets>
+      <a-asset-item id="wolfModel" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/glb/gltf/Wolf-Blender-2.82a.gltf" />
+      <a-asset-item id="logoModel" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/glb/logo/logo-p.gltf" />
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+      <a-gltf-model
+        rotation="0 0 0"
+        position="0 0 0.1"
+        scale="1 1 1"
+        src="#wolfModel"
+        animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
+      ></a-gltf-model>
+    </a-entity>
+
+   
+    <a-entity mindar-image-target="targetIndex: 1">
+      <a-gltf-model
+        rotation="0 0 0"
+        position="0 0 0.1"
+        scale="1 1 1"
+        src="#logoModel"
+        animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
+      ></a-gltf-model>
+    </a-entity>
+  </a-scene>
+</body> -->
+
