@@ -31,9 +31,20 @@
   <p>마법을 준비 중...</p>
 </div> -->
 
-<div id="scanning" class="hidden">
+<!-- <div id="scanning" class="hidden">
    <img src="https://yooningu.github.io/ar.js-test/svg/scan.svg" alt="스캔 아이콘" id="scan" />
   📷 스캔 중입니다... 마법의 순간을 기다려주세요!
+</div> -->
+<div id="scanning" class="hidden" >
+  <video id="custom-loading" autoplay loop muted playsinline style="
+    width: 200px;
+    height: auto;
+    pointer-events: none;
+  ">
+    <source src="https://yooningu.github.io/ar.js-test/webm/scanui.webm" type="video/webm">
+    브라우저가 WebM을 지원하지 않습니다.
+  </video>
+  <p style="margin-top: 12px;">📷 스캔 중입니다... 마법의 순간을 기다려주세요!</p>
 </div>
       
 <div id="header">PixiToy</div>
