@@ -53,50 +53,41 @@
     display: block;
     margin: 0 auto;
   "></canvas>
-  
+ 
 </div>
 
 <script>
   const frameCount = 90; // 전체 프레임 수
-  const frameBase = "https://yooningu.github.io/ar.js-test/webm/ui/ui_"; // PNG 경로
-  const frameRate = 30; // FPS 설정
+  const frameBase = "https://yooningu.github.io/ar.js-test/webm/ui/ui_"; // 파일 경로
+  const frameRate = 30; // FPS (1초에 30프레임)
 
   const canvas = document.getElementById("custom-loading");
   const ctx = canvas.getContext("2d");
   const images = [];
   let currentFrame = 0;
-  let loadedImages = 0;
 
-  // 이미지 사전 로딩
+  // 이미지 미리 로드
   for (let i = 0; i < frameCount; i++) {
     const img = new Image();
-    img.onload = () => {
-      loadedImages++;
-      if (loadedImages === frameCount) {
-        startAnimation();
-      }
-    };
     img.src = `${frameBase}${i.toString().padStart(5, '0')}.png`;
     images.push(img);
   }
 
-  function startAnimation() {
-    // canvas 내부 픽셀 해상도 조정 (화질 깨짐 방지)
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-
-    setInterval(() => {
+  // 반복 재생 애니메이션
+  function animate() {
+    setTimeout(() => {
+      requestAnimationFrame(animate);
       const img = images[currentFrame];
       if (img.complete) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
       }
-      currentFrame = (currentFrame + 1) % frameCount;
+      currentFrame = (currentFrame + 1) % frameCount; // 🎯 반복
     }, 1000 / frameRate);
   }
+
+  animate(); // 실행
 </script>
-
-
 
 
       
