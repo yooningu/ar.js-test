@@ -25,27 +25,7 @@
 
 
   <body>
-<!-- 
-    <div id="loading">
-  <img src="https://yooningu.github.io/ar.js-test/svg/cat-loading.svg" alt="로딩 아이콘" id="cat-loading" />
-  <p>마법을 준비 중...</p>
-</div> -->
 
-<!-- <div id="scanning" class="hidden">
-   <img src="https://yooningu.github.io/ar.js-test/svg/scan.svg" alt="스캔 아이콘" id="scan" />
-  📷 스캔 중입니다... 마법의 순간을 기다려주세요!
-</div> -->
-<!-- <div id="scanning" class="hidden" >
-  <video id="custom-loading" autoplay loop muted playsinline style="
-    width: 200px;
-    height: auto;
-    pointer-events: none;
-  ">
-    <source src="https://yooningu.github.io/ar.js-test/webm/scanui.webm" type="video/webm">
-    브라우저가 WebM을 지원하지 않습니다.
-  </video>
-  <p style="margin-top: 12px;">📷 스캔 중입니다... 마법의 순간을 기다려주세요!</p>
-</div> -->
 <div id="scanning" class="hidden" style="text-align: center;">
   <canvas id="custom-loading" width="400" height="800" style="
     pointer-events: none;
@@ -88,6 +68,20 @@
 
   animate(); // 실행
 </script>
+<script>
+  AFRAME.registerComponent('play-video-on-target', {
+    init() {
+      const video = document.querySelector('#cardVideo');
+      const anchor = this.el;
+      anchor.addEventListener('targetFound', () => {
+        video.play().catch(() => {});
+      });
+      anchor.addEventListener('targetLost', () => {
+        video.pause();
+      });
+    }
+  });
+</script>
 
 
       
@@ -108,6 +102,14 @@
 <!-- <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/gltf/logo-p1/logo-p1.gltf" /> -->
     <a-asset-item id="logo" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/gltf/logo-p1/logo-p1.gltf" />
     <a-asset-item id="cat-glb" src="https://yooningu.github.io/ar.js-test/gltf/cat-glb/cat-glb.glb" />
+    <video id="cardVideo"
+           src="https://yooningu.github.io/ar.js-test/mp4/cat-glb.mp4"
+           autoplay
+           loop
+           muted
+           playsinline
+           webkit-playsinline
+           crossorigin="anonymous"></video>
     <a-asset-item id="glbtest" src="https://yooningu.github.io/ar.js-test/gltf/test1/scene.gltf" />
     <!-- 모델 분류 하는 곳 id: 객체 이름, src: 경로 -->
   </a-assets>
@@ -136,10 +138,13 @@
     -->
   
 
-  <a-entity mindar-image-target="targetIndex: 1">
-    <video id="card" src="https://yooningu.github.io/ar.js-test/mp4/cat-glb.mp4" ></video>
-    <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> 
-    <a-gltf-model rotation="90 0 90 " position="0 0 0.2" scale="0.1 0.1 0.1" src="#cat-glb">
+  <a-entity mindar-image-target="targetIndex: 1" play-video-on-target>
+      <a-video src="#cardVideo"
+             position="0 0 0"
+             width="1"
+             height="0.552"
+             rotation="0 0 0"></a-video>
+    <a-gltf-model rotation="90 0 90 " position="0 0 0.2" scale="0.1 0.1 0.1" src="#cat-glb"/>
   </a-entity>
 
    <a-entity mindar-image-target="targetIndex: 2">
@@ -150,57 +155,6 @@
 
 </a-scene>
 
-
-
-
-
-
-<!-- 
-
-<script>
-  const loading = document.getElementById("loading");
-  const scanning = document.getElementById("custom-scanning");
-  const scene = document.querySelector("a-scene");
-
-  // 1. 페이지가 처음 로드될 때 로딩 숨김
-  window.addEventListener("load", () => {
-    loading.style.setProperty("display", "none", "important");
-  });
-
-  // 2. mindar가 시작되면 로딩 숨기고 스캔 UI 표시
-  scene.addEventListener("mindar-start", () => {
-    loading.style.display = "none";
-    scanning.style.display = "flex";
-  });
-
-  // 3. 타겟이 인식되면 스캔 UI 숨기기
-  document.querySelectorAll("a-entity[mindar-image-target]").forEach(entity => {
-    entity.addEventListener("targetFound", () => {
-      scanning.style.display = "none";
-    });
-  });
-</script> -->
-
-
-<!-- <script>
-  const loading = document.getElementById("loading");
-
-  // scanning UI가 나타나는지 감지하는 관찰자
-  const observer = new MutationObserver(() => {
-    const scanningUI = document.querySelector(".mindar-ui-scanning");
-    if (scanningUI && scanningUI.style.display !== "none") {
-      if (loading) {
-        loading.style.setProperty("display", "none", "important");
-        observer.disconnect(); // 감지 끝내기
-      }
-    }
-  });
-
-  // body 전체를 감시하되, DOM 추가가 있을 때만 반응
-  observer.observe(document.body, { childList: true, subtree: true });
-</script>  -->
-
- <!-- 스크립 바닥 고정--> 
   </body>
  
 </html>
