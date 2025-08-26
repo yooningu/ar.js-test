@@ -92,7 +92,7 @@
  <a-scene 
   mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.1; uiScanning: #scanning; maxTrack: 12" 
   color-space="sRGB" 
-  renderer="colorManagement: true, physicallyCorrectLights" 
+  renderer="alpha: true; colorManagement: true, physicallyCorrectLights" 
   vr-mode-ui="enabled: false" 
   device-orientation-permission-ui="enabled: false">
 <!-- uiError: no; uiLoading: no 스켄이랑 에러 화면 숨기기 -->
@@ -110,6 +110,19 @@
            playsinline
            webkit-playsinline
            crossorigin="anonymous"></video>
+
+            <video id="cat-move"
+           src="https://yooningu.github.io/ar.js-test/mp4/cat.webm"
+           autoplay
+           loop
+           muted
+           playsinline
+           webkit-playsinline
+           crossorigin="anonymous"></video>
+
+
+
+           
     <a-asset-item id="glbtest" src="https://yooningu.github.io/ar.js-test/gltf/test1/scene.gltf" />
     <!-- 모델 분류 하는 곳 id: 객체 이름, src: 경로 -->
   </a-assets>
@@ -148,6 +161,12 @@
   </a-entity>
 
    <a-entity mindar-image-target="targetIndex: 2">
+    <a-video src="#cat-move"
+             position="0 0 0"
+             width="1"
+             height="0.552"
+             rotation="0 0 0"
+             material="transparent: true; alphaTest: 0.001"></a-video>
     <a-gltf-model rotation="0 0 0" position="0 0 0.2" scale="0.3 0.3 0.3" src="#glbtest" animation-mixer >
   <!-- animation-mixer 애니메이션 있으면 넣어야함 아니면 안움직임 -->
   </a-entity>
