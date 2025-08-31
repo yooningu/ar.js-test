@@ -92,7 +92,7 @@
  <a-scene 
   mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.1; uiScanning: #scanning; maxTrack: 12" 
   color-space="sRGB" 
-  renderer="alpha: true; colorManagement: true, physicallyCorrectLights" 
+  renderer=" colorManagement: true physicallyCorrectLights: true; antialias: true" 
   vr-mode-ui="enabled: false" 
   device-orientation-permission-ui="enabled: false">
 <!-- uiError: no; uiLoading: no 스켄이랑 에러 화면 숨기기 -->
@@ -154,7 +154,7 @@
   
 
   <a-entity mindar-image-target="targetIndex: 1" play-video-on-target>
-    <a-plane src="#win" position="0 0 10" height="1" width="1" rotation="0 0 0"></a-plane>
+    
 
       <a-video src="#cardVideo"
              position="0 0 0"
@@ -164,6 +164,8 @@
     <a-gltf-model rotation="0 0 0 " position="0 0 0.2" scale="0.2 0.2 0.2" src="#cat-glb"/>
   </a-entity>
 
+
+
    <a-entity mindar-image-target="targetIndex: 2">
     <a-video src="#cat-move"
              position="0 0 0"
@@ -171,6 +173,7 @@
              height="0.552"
              rotation="0 0 0"
              material="transparent: true; alphaTest: 0.001"></a-video>
+             <a-plane src="#win" position="0 0 3" height="1" width="1" rotation="0 0 0"></a-plane>
     <!-- <a-gltf-model rotation="0 0 0" position="0 0 0.2" scale="0.3 0.3 0.3" src="#glbtest" animation-mixer > -->
   <!-- animation-mixer 애니메이션 있으면 넣어야함 아니면 안움직임 -->
   </a-entity>
