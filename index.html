@@ -112,13 +112,15 @@
            crossorigin="anonymous"></video>
 
             <video id="cat-move"
-           src="https://yooningu.github.io/ar.js-test/mp4/cat-rr.webm"
+           src="https://yooningu.github.io/ar.js-test/mp4/cat-back.mp4"
            autoplay
            loop
            muted
            playsinline
            webkit-playsinline
            crossorigin="anonymous"></video>
+           <img id="win" src="https://yooningu.github.io/ar.js-test/images/win.png" />
+           
 
 
 
@@ -152,12 +154,14 @@
   
 
   <a-entity mindar-image-target="targetIndex: 1" play-video-on-target>
+    <a-plane src="#win" position="0 0 10" height="1" width="1" rotation="0 0 0"></a-plane>
+
       <a-video src="#cardVideo"
              position="0 0 0"
              width="1"
              height="0.552"
              rotation="0 0 0"></a-video>
-    <a-gltf-model rotation="90 0 90 " position="0 0 0.2" scale="0.1 0.1 0.1" src="#cat-glb"/>
+    <a-gltf-model rotation="0 0 0 " position="0 0 0.2" scale="0.2 0.2 0.2" src="#cat-glb"/>
   </a-entity>
 
    <a-entity mindar-image-target="targetIndex: 2">
