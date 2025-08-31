@@ -154,6 +154,13 @@
   
 
   <a-entity mindar-image-target="targetIndex: 1" play-video-on-target>
+    <!-- 기본 방향광 -->
+<a-entity light="type: directional; intensity: 1; color: #ffffff" position="0 1 1"></a-entity>
+<a-entity light="type: directional; intensity: 0.5; color: #ffffff" position="0 -1 -1"></a-entity>
+
+<!-- 주변광 -->
+<a-entity light="type: ambient; intensity: 0.5; color: #ffffff"></a-entity>
+
     
     
     
@@ -161,7 +168,7 @@
       <a-video src="#cardVideo"
              position="0 0 -0.2"
              width="1"
-             height="1.7"
+             height="1.5"
              rotation="0 0 0"></a-video>
     <a-gltf-model rotation="0 0 0 " position="0 0 0.2" scale="0.2 0.2 0.2" src="#cat-glb"/>
   </a-entity>
