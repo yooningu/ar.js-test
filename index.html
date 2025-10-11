@@ -91,7 +91,7 @@
 
          <!-- 판타지 느낌 아이콘  -->
  <a-scene 
-  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/test2.mind;filterMinCF:0.0001;filterBeta:0.3; uiScanning: #scanning; maxTrack: 12" 
+  mindar-image="imageTargetSrc: https://yooningu.github.io/ar.js-test/mind/new.mind;filterMinCF:0.0001;filterBeta:0.3; uiScanning: #scanning; maxTrack: 12" 
   color-space="sRGB" 
   renderer=" colorManagement: true; physicallyCorrectLights: true; antialias: true" 
   vr-mode-ui="enabled: false" 
@@ -101,7 +101,7 @@
 
   <a-assets>
 <!-- <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/gltf/logo-p1/logo-p1.gltf" /> -->
-    <a-asset-item id="logo" src="https://cdn.jsdelivr.net/gh/yooningu/ar.js-test@main/gltf/logo-p1/logo-p1.gltf" />
+    <a-asset-item id="p-cat" src="https://yooningu.github.io/ar.js-test/gltf/cat-glb/p-cat.glb" />
     <a-asset-item id="cat-glb" src="https://yooningu.github.io/ar.js-test/gltf/cat-glb/cat-glb.glb" />
     <video id="cardVideo"
            src="https://yooningu.github.io/ar.js-test/mp4/cat-glb.mp4"
@@ -141,11 +141,21 @@
 
 
 
-    <a-entity mindar-image-target="targetIndex: 0">
-    <!-- <img id="card" src="https://yooningu.github.io/ar.js-test/images/test.jpg" />
-    <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> 사진 넣을 때-->
+    <!-- <a-entity mindar-image-target="targetIndex: 0">
+     <img id="card" src="https://yooningu.github.io/ar.js-test/images/test.jpg" />
+    <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane> 사진 넣을 때
     <a-gltf-model rotation="0 0 0 " position="0 0 0.2" scale="5 5 5" src="#logo"/>
-   </a-entity>
+   </a-entity> -->
+    <a-entity mindar-image-target="targetIndex: 0" play-video-on-target>
+    <!-- 기본 방향광 -->
+<a-entity light="type: directional; intensity: 6; color: #ffffff" position="0 4 5"></a-entity>
+<a-entity light="type: directional; intensity: 3; color: #ff8800" position="0 -3 0"></a-entity>
+
+<!-- 주변광 -->
+<a-entity light="type: ambient; intensity: 1.5; color: #aa66ff"></a-entity>
+
+    <a-gltf-model rotation="0 0 0 " position="0 0 0.2" scale="0.2 0.2 0.2" src="#p-cat"/>
+  </a-entity>
 
     <!-- mindar-image-target에 각각 번호 부여 
     사진을 정면으로 봤을 때 0 1 2 라고 치면 
@@ -156,8 +166,8 @@
 
   <a-entity mindar-image-target="targetIndex: 1" play-video-on-target>
     <!-- 기본 방향광 -->
-<a-entity light="type: directional; intensity: 3; color: #ffffff" position="0 4 5"></a-entity>
-<a-entity light="type: directional; intensity: 1; color: #ff8800" position="0 -3 0"></a-entity>
+<a-entity light="type: directional; intensity: 6; color: #ffffff" position="0 4 5"></a-entity>
+<a-entity light="type: directional; intensity: 3; color: #ff8800" position="0 -3 0"></a-entity>
 
 <!-- 주변광 -->
 <a-entity light="type: ambient; intensity: 1.5; color: #aa66ff"></a-entity>
